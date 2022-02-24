@@ -15,15 +15,26 @@
   <%= @restaurant.category %>
 </p>
 
-<h3>Reviews:</h3>
-<ul>
-  <% @restaurant.reviews.each do |review| %>
-    <li>
-      <%= review.content %>
-      <%= "Rating: #{review.rating}" %>
-    </li>
-  <% end %>
-</ul>
+  <h3>Reviews:</h3>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <%= "#{review.content}, Rating: #{review.rating}" %>
+      </li>
+    <% end %>
+  </ul>
 
-<%= link_to 'Back', restaurants_path, class: "btn btn-warning" %>
-<%= link_to 'Add new Review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+  <h3>New Review</h3>
+  <%= simple_form_for [ @restaurant, @review ] do |f| %>
+  <div class="row mb-3" class="col-sm-10">
+    <%= f.input :content %>
+  </div>
+  <div class="row mb-3" class="col-sm-10">
+    <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
+  </div>
+    <%= f.submit "Submit review", class: "btn btn-outline-primary btn-sm" %>
+  <% end %>
+
+
+<%= link_to 'Back', restaurants_path, class: "btn btn-outline-secondary btn-sm" %>
+<%# <%= link_to 'Add new Review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>

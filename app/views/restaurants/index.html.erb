@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Restaurants</h1>
-<%= link_to 'New Restaurant', new_restaurant_path, class: 'btn btn-primary' %>
+<%= link_to 'New Restaurant', new_restaurant_path, class: 'btn btn-outline-dark btn-sm' %>
 <table class='table'>
   <thead>
     <tr>
@@ -16,7 +16,7 @@
         <td><%= restaurant.name %></td>
         <td><%= restaurant.address %></td>
         <td><%= restaurant.category %></td>
-        <td><%= link_to 'Show', restaurant, class: 'btn btn-success' %></td>
+        <td><%= link_to 'Show', restaurant, class: 'btn btn-outline-success' %></td>
       </tr>
     <% end %>
   </tbody>
